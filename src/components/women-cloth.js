@@ -35,7 +35,7 @@ class Home  extends Component{
                                   <img src={`${item.n.thumbnailImageUrl}`}/>
                                   <button onClick={this.handleClick}/>
                                   <hr/>
-                                  <CheckBox/>
+                                
                                   <Image/>
 
 

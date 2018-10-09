@@ -2,9 +2,14 @@ import React from "react";
 import Slider from "react-slick";
 import {connect} from 'react-redux'
 import { Link } from "react-router-dom";
-
+import axios from 'axios';
+import cheerio from 'cheerio';
+import Images from '../reducers/fetch1'
 import {bindActionCreators} from "redux";
-//import background from './fetch';
+import Update from '../node/update';
+
+
+
 class  BasicExample extends React.Component{
 constructor(props){
   super(props),
@@ -17,36 +22,37 @@ constructor(props){
       count:prevState.count+1
     }));
   }
+
+
     render()
           {
             const {csv} = this.props;
 const item=csv[this.state.count];
-              return(
 
-                      <div>
 
-                        <ul className="list-group col-sm-4">
-                            {
-
-                                  <div key={item.n.partnerProductId}>
+  return(
+                <div>
+                          <div>
+                            <ul className="list-group col-sm-4">
+                                  <div>
                                   <Link to={`/${item.n.partnerProductId}`}>
                                 {item.n.title}
                                 </Link>
                                 <img src={`${item.n.thumbnailImageUrl}`}/>
-                                <button onClick={this.handleClick}/>
-
-
+                                <div>
+                                <Images item={item} />
                                 </div>
-
-
-                          }
-
+                                <button onClick={this.handleClick}>NEXT</button>
+                                </div>
                           </ul>
+                          <Update item={item}/>
                           </div>
 
+                  </div>
     );
 
     }
+
     }
  function mapStateToProps(state) {
     return {
@@ -55,4 +61,6 @@ const item=csv[this.state.count];
     }
  }
 
-  export default connect(mapStateToProps )(BasicExample);
+
+
+export default connect(mapStateToProps)(BasicExample);

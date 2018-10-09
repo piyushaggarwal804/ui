@@ -5,9 +5,7 @@ import Page1 from './page1';
 class App extends Component {
   render() {
     return (
-
       <Page1/>
-
     );
   }
 }

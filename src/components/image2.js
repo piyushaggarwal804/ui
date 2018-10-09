@@ -7,8 +7,8 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import CheckBox from './checkbox';
-import devtoList from '../reducers/fetch1';
-const tileData = devtoList;
+import Kurs from '../reducers/fetch1';
+//const tileData = devtoList;
 
 
 const styles = theme => ({
@@ -56,9 +56,9 @@ function SingleLineGridList(props) {
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
-        {tileData.map(tile => (
-          <GridListTile key={tile.url}>
-            <img src={tile.url}  width="200"/>
+        {Kurs.map(tile => (
+          <GridListTile key={tile.src}>
+            <img src={tile.src} />
 
             <GridListTileBar
 
